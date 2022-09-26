@@ -32,8 +32,8 @@ function create_and_push_manifest() {
   docker manifest push --purge $DOCKER_ORG/$IMAGE_NAME:latest
 }
 
-cd testnode-scripts
+pushd testnode-scripts
 build_and_push_image "linux/amd64" "amd64" "tmigone" "nitro-testnode-scripts"
 build_and_push_image "linux/arm64/v8" "arm64v8" "tmigone" "nitro-testnode-scripts"
 create_and_push_manifest "tmigone" "nitro-testnode-scripts"
-cd ..
+popd
